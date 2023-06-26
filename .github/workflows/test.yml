@@ -29,6 +29,5 @@ jobs:
         cache-dependency-path: './package-lock.json'
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm test
-    - run: npm run test  nightwatch\examples\ui-tests\contactUsPageTests.js
-    - run: npx nightwatch
+    - run: npm jest
+    - run: npm run test nightwatch/examples/ui-tests/contactUsPageTests.js
