@@ -16,6 +16,7 @@ This project provide simple ui tests for the website mentioned in the documentat
 ## <p align="left"><img src="https://www.pngplay.com/wp-content/uploads/6/Exam-Logo-Background-PNG-Image.png" width="40" title="Tests and Results"> Tests and Results </p>
    - *UI Tests and Results*:
         - UI Tests can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/nightwatch/examples/ui-tests) in this folder.
+          - includes 2 files for homepage tests and contact-us page tests.
         - UI tests html results can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/tests_output/tests_output_results/uiTestOutput) in this folder.
    - *API Tests and Results*:
         - API Tests can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/nightwatch/api-tests) in this folder.
@@ -34,5 +35,5 @@ This project provide simple ui tests for the website mentioned in the documentat
 - **Note the failing part isn't because of the tests itself as all the api tests can be seen passed, however the ui tests the ci fail to start the test runner.**
 
 ## <p align="left"><img src="https://www.pngall.com/wp-content/uploads/12/Delivery-Scooter-PNG-Images-HD.png" width="40" title="Deliverables"> Deliverables </p> 
-- Bug report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/blob/main/Bug%20reports.pdf).
-- Test documentation report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/blob/main/Testcases%20documentation%20final.pdf).
+- Bug report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/PDF).
+- Test documentation report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/PDF).
