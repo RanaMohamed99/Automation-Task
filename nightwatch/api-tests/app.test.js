@@ -1,6 +1,6 @@
 const request = require('supertest');
 const assert = require('assert');
-import app from '../../../app.js'
+import app from '../../app.js'
 
 describe("POST /users", () => {
 
