@@ -72,7 +72,7 @@ module.exports = {
               '--disable-dev-shm-usage',
             //'--ignore-certificate-errors',
             //'--allow-insecure-localhost',
-            //  '--headless'
+              '--headless'
           ]
         }
       },
