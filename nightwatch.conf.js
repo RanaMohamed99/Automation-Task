@@ -17,13 +17,13 @@ module.exports = {
   src_folders: ['test','nightwatch/examples'],
 
   // See https://nightwatchjs.org/guide/concepts/page-object-model.html
-  page_objects_path: ['nightwatch/page-objects'],
+ // page_objects_path: ['nightwatch/page-objects'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-commands.html
-  custom_commands_path: ['nightwatch/custom-commands'],
+  // custom_commands_path: ['nightwatch/custom-commands'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-assertions.html
-  custom_assertions_path: ['nightwatch/custom-assertions'],
+  //custom_assertions_path: ['nightwatch/custom-assertions'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-plugins.html
   plugins: [],
