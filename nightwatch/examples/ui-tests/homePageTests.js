@@ -56,5 +56,20 @@ describe('Home page Tests', function() {
       .assert.textEquals(dressSpanSelector,'"DRESS"')
   });
 
+ it('search for dress and verify results', function(browser) {
+    browser
+      .assert.visible(searchFieldSelector)
+      .setValue(searchFieldSelector, 'dress')
+      .assert.visible('button[type=submit]')
+      .click(searchButtonSelector)
+      .elements('css selector', '.product_list .product-container', function (result) {
+        const itemCount = result.value.length;
+        console.log('itemcounttttt:',itemCount )
+        for (let i = 1; i <= itemCount; i++) {
+          browser.verify.attributeContains(`#product_list > li:nth-child(${i}) > div > div.right-block > h5 > a`,'title', 'Dress');
+          }
+      })
+    })
+  
   after(browser => browser.end());
 });
