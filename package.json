@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest && nightwatch"
+    "dev": "nodemon ./node_modules/mock-user-auth/bin/www.js"
   },
   "keywords": [],
   "author": "",
