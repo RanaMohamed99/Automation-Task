@@ -8,7 +8,7 @@ jobs:
      - checkout
      - run: npm update
      - run: 
-       name: run localhost
-       command: | npm run dev 3000
-       background: true
+          name: Start Localhost Server
+          background: true
+          command: | npm run dev 3000
      - run: npm test
