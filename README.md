@@ -1,4 +1,4 @@
-![CI Badge](https://github.com/RanaMohamed99/Automation-Task/actions/workflows/test.yml/badge.svg)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/RanaMohamed99/Automation-Task/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/RanaMohamed99/Automation-Task/tree/main)
 
 # <p align="center"><img src="https://cdn2.iconfinder.com/data/icons/testing-software-2-filled-outline/128/Testing_Software_2_-_Ps_Style_-_1-08-512.png" width="40" title="Automation-Task"> Automation-Task </p>
 This project provide simple ui tests for the website mentioned in the documentation which was implementated using Nightwatch JS along side with the api tests.
