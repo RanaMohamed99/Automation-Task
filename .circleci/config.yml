@@ -7,4 +7,5 @@ jobs:
     steps:
      - checkout
      - run: npm update
+     - run: npm install -g jest
      - run: npm test
