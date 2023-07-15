@@ -6,5 +6,6 @@ jobs:
      - image: circleci/node:12.22.7
     steps:
      - checkout
+     - run: npm install chromedriver
      - run: npm install --save
      - run: npm test
