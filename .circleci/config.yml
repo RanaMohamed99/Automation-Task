@@ -25,7 +25,6 @@ jobs:
           name: Run UI Tests
           command: |
             npm install
-            cd Automation-Task/nightwatch/examples/ui-test
             npm run uitest -- Automation-Task/nightwatch/examples/ui-tests/homePagetests.js
       - run:
           name: Stop Localhost Server
