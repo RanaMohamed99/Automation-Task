@@ -1,13 +1,13 @@
+yaml
 version: 2.1
-
 jobs:
   build:
     docker:
-     - image: cimg/node:16.13.2
+      - image: cimg/node:16.13.2
     steps:
-     - checkout
-     - run: npm update
-     - run:
+      - checkout
+      - run: npm update
+      - run:
           name: Start Localhost Server
           background: true
           command: |
@@ -17,8 +17,9 @@ jobs:
           name: Run Tests
           command: |
             cd Automation-Task/nightwatch/examples/ui-tests
+            npm install
             npm test
-     - run:
+      - run:
           name: Stop Localhost Server
           command: |
             # Stop the server gracefully
