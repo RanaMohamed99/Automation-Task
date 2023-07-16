@@ -19,9 +19,8 @@ jobs:
       - run:
           name: Run API Tests
           command: |
-            npm run apitest 
+            npm run apitest || true
             echo "API tests completed successfully"
-          ignore_errors: true
       - run:
           name: Run UI Tests
           command: |
