@@ -15,9 +15,9 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            cd nightwatch/examples/ui-tests
+            cd Automation-Task
             npm install
-            npm test
+            npm test -- --testPathPattern=nightwatch/examples/ui-tests
       - run:
           name: Stop Localhost Server
           command: |
