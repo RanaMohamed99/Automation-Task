@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            cd Automation-Task/nightwatch/examples/ui-tests
+            cd nightwatch/examples/ui-tests
             npm install
             npm test
       - run:
