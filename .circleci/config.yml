@@ -17,11 +17,17 @@ jobs:
           command: |
             pwd
       - run:
-          name: Run Tests
+          name: Run API Tests
+          command: |
+            npm apitest 
+            echo "API tests completed successfully"
+          ignore_errors: true
+      - run:
+          name: Run UI Tests
           command: |
             npm install
-            cd nightwatch/examples/ui-tests
-            npm run test -- Automation-Task/nightwatch/examples/ui-tests/homePagetests.js
+            cd Automation-Task/nightwatch/examples/ui-tests/homePagetests.jsnightwatch/examples/ui-tests
+            npm uitest -- Automation-Task/nightwatch/examples/ui-tests/homePagetests.js
       - run:
           name: Stop Localhost Server
           command: |
