@@ -13,3 +13,8 @@ jobs:
             npm run dev 3000 &
             sleep 50 # Wait for the server to start
      - run: npm test
+     - run:
+          name: Stop Localhost Server
+          command: |
+            # Stop the server gracefully
+            pkill -f "npm run dev 3000"
