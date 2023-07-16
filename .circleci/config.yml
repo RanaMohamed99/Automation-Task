@@ -7,8 +7,4 @@ jobs:
     steps:
      - checkout
      - run: npm update
-     - run: 
-          name: Start Localhost Server
-          background: true
-          command: | npm run dev 3000
      - run: npm test
