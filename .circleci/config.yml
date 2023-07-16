@@ -20,6 +20,7 @@ jobs:
           name: Run Tests
           command: |
             npm install
+            cd nightwatch/examples/ui-tests
             npm run test -- nightwatch/examples/ui-tests/homePagetests.js
       - run:
           name: Stop Localhost Server
