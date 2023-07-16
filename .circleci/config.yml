@@ -24,8 +24,7 @@ jobs:
       - run:
           name: Run UI Tests
           command: |
-            npm install
-            npm run uitest -- ./nightwatch/examples/ui-tests/homePagetests.js
+            npm run uitest
       - run:
           name: Stop Localhost Server
           command: |
