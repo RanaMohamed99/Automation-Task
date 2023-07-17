@@ -11,6 +11,9 @@ jobs:
           command: |
             npm install chromedriver
       - run:
+          name: List Project Directory
+          command: ls -R
+      - run:
           name: Start Localhost Server
           background: true
           command: |
