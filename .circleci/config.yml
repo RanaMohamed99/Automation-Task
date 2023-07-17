@@ -9,7 +9,7 @@ jobs:
       - run:
          name: Install ChromeDriver
          command:  |
-            npm install chromedriver
+            npm install -g chromedriver
       - run:
           name: Start Localhost Server
           background: true
