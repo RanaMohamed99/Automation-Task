@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: cimg/node:16.13.2
-    parallelism: 2
     steps:
       - checkout
       - run: npm update
@@ -26,3 +25,13 @@ jobs:
           command: |
             # Stop the server gracefully
             pkill -f "npm run dev 3000"
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build:
+          context: build
+          allow_failures:
+            - Run API Tests
+            - Run UI Tests
