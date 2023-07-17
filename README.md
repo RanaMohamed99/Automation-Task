@@ -17,10 +17,10 @@ This project provide simple ui tests for the website mentioned in the documentat
    - *UI Tests and Results*:
         - UI Tests can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/nightwatch/examples/ui-tests) in this folder.
           - includes 2 files for homepage tests and contact-us page tests.
-        - UI tests html results can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/tests_output/tests_output_results/uiTestOutput) in this folder.
+        - UI tests html results can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/tests_output/tests_output_results/ui_tests_output) in this folder.
    - *API Tests and Results*:
-        - API Tests can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/nightwatch/api-tests) in this folder.
-        - API tests html results can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/tests_output/tests_output_results/apiTestsOutput) in this 
+        - API Tests can be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/api-tests) in this folder.
+        - API tests html results can be found [here](https://github.com/RanaMohamed99/Automation-Task/blob/main/tests_output/tests_output_results/api_tests_output/apitest-report.html) in this 
           folder.
 
    - *Screenshots for the provided test results can also be found [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/tests_output/tests_output_results)*
@@ -30,8 +30,8 @@ This project provide simple ui tests for the website mentioned in the documentat
 - Supertest
 - JEST
 
-## <p align="left"><img src="https://cdn.iconscout.com/icon/free/png-256/free-circleci-3629946-3031758.png" width="35" title="Integration with CI"> Integration with CI </p>
-- I have integrated my project with CI, and included the badge as well.
+## <p align="left"><img src="https://cdn.iconscout.com/icon/free/png-256/free-circleci-3629946-3031758.png" width="35" title="Integration with Circle CI"> Integration with CI </p>
+- I have integrated my project with Circle CI, and included the badge as well.
 - **Note the failing part isn't because of the tests itself as all the api tests can be seen passed, however the ui tests the ci fail to start the test runner.**
 
 ## <p align="left"><img src="https://www.pngall.com/wp-content/uploads/12/Delivery-Scooter-PNG-Images-HD.png" width="40" title="Deliverables"> Deliverables </p> 
