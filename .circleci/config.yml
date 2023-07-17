@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: npm update
+      - run: npm uninstall protractor && npm install protractor
       - run:
          name: Install ChromeDriver
          command:  |
