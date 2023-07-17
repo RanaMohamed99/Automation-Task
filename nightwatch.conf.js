@@ -70,7 +70,7 @@ module.exports = {
           args: [
               '--no-sandbox',
               '--disable-dev-shm-usage',
-            //'--ignore-certificate-errors',
+              '--ignore-certificate-errors',
             //'--allow-insecure-localhost',
               '--headless'
           ]
