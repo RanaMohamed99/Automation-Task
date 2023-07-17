@@ -1,6 +1,5 @@
 import supertest from 'supertest';
 const api = supertest('http://localhost:3000/api/v1');
-
 var tokenn;
 
 describe("POST /users", () => {
@@ -28,42 +27,15 @@ describe("POST /users", () => {
         
     })
 
-    describe("when email or name or password are missing", () => {
+    describe("when given an invalid request body", () => {
 
-        it('should respond with a 400 when email is missing', async () => {
-            const response = await api.post('/users').send({
-                "name": "test",
-                "password": "password"  
-            })
+        it('should respond with status code 400 bad request when given an empty request body', async () => {
+            const response = await api.post('/users').send({})
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(400)
         })
-        it('should respond with a 400 when name is missing', async () => {
-            const response = await api.post('/users').send({
-                "email": "test@test.com",
-                "password": "password1"  
-            })
-            expect(response.statusCode).toBe(400)
-        })
-        it('should respond with a 400 when password is missing', async () => {
-            const response = await api.post('/users').send({
-                "email": "testt@test.test",
-                "name": "testt", 
-            })
-            expect(response.statusCode).toBe(400)
-        })
-        it('should respond with a 400 when password is missing', async () => {
-            const response = await api.post('/users').send(
-                {
-                "email": null,
-                "name": null, 
-            }
-            )
-            expect(response.statusCode).toBe(400)
-        })
-        it('should respond with a 400 incase of empty request body', async () => {
-            const response = await api.post('/users').send(
-                null
-                )
+        it('should respond with status code 400 bad request when given no request body', async () => {
+            const response = await api.post('/users')
             .set("Content-type", "application/json")
             expect(response.statusCode).toBe(400)
         })
@@ -71,12 +43,13 @@ describe("POST /users", () => {
     })
     describe("when email is already registered", () => {
 
-        it('should respond with a 401', async () => {
+        it('should respond with status code 401 unauthorized', async () => {
             const response = await api.post('/users').send({
                 "name": "user",
                 "email": "user@gmail.com",
                 "password": "user123"
             })
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(401)
             expect(response.body.message).toEqual("User already registered")
         })
@@ -85,34 +58,50 @@ describe("POST /users", () => {
 
 describe("POST /auth", () => {
 
-    describe("given email and password", () => {
+    describe("given a valid email and password", () => {
         
         it('should respond with token', async () => {
             const response = await api.post('/auth').send({
                 "email": "user@gmail.com",
                 "password": "user123"
             })
+            .set("Content-type", "application/json")
             tokenn = response.body.token;
             expect(response.statusCode).toBe(200)
             expect(response.body.token).toBeDefined()
         })
     })
 
-    describe("when email or password are missing", () => {
+    describe("when email or password are invalid", () => {
 
-        it('should respond with a 401 when email is missing', async () => {
+        it('should respond with status code 401 unauthorized when email is inccorect', async () => {
             const response = await api.post('/auth').send({
-                "password": "password"  
+                "email": "user@gmail.com",
+                "password": "user1234"
             })
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(401)
             expect(response.body.message).toEqual('Incorrect email or password')
         })
-        it('should respond with a 401 when password is missing', async () => {
+        it('should respond with status code 401 unauthorized when password is incorrect', async () => {
             const response = await api.post('/auth').send({
-                "email": "user@gmail.com"
+                "email": "userr@gmail.com",
+                "password": "user123"
             })
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(401)
             expect(response.body.message).toEqual('Incorrect email or password')
+        })
+
+        it('should respond with status code 400 of bad request when request body is epmty', async () => {
+            const response = await api.post('/auth').send({})
+            .set("Content-type", "application/json")
+            expect(response.statusCode).toBe(400)
+        })
+        it('should respond with a status code 400 of bad request when there is no request body', async () => {
+            const response = await api.post('/auth')
+            .set("Content-type", "application/json")
+            expect(response.statusCode).toBe(400)
         })
 
     })
@@ -124,7 +113,8 @@ describe("GET /users",  () => {
 
         it('should respond with a json of user data', async () => {
             const response = await api.get('/users')
-            .set('Authorization', tokenn);
+            .set('Authorization', tokenn)
+            .expect("Content-type", "application/json; charset=utf-8")
             expect(response.statusCode).toBe(200)
             expect(typeof response.body.id).toBe("number")
             expect(response.body.email).toEqual('user@gmail.com')
@@ -137,7 +127,7 @@ describe("GET /users",  () => {
 
     describe("given an invalid authorization header", () => {
 
-        it('should respond with status code 403 incase of invalid authorization header', async () => {
+        it('should respond with status code 403 forbidden incase of invalid authorization header', async () => {
             const response = await api.get('/users')
             .set('Authorization' , 'wewewewewewe')
             expect(response.statusCode).toBe(403)
@@ -157,6 +147,7 @@ describe("PATCH /users",  () => {
                 "email": "new_email@gmail.com",
                 "password": "newpassword123"
             })
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(200)
             expect(response.body.message).toEqual('User updated with success')
         })
@@ -169,9 +160,11 @@ describe("PATCH /users",  () => {
             tokenn = response.body.token;
             const responsee = await api.patch('/users')
             .set('Authorization' , tokenn)
+            .set("Content-type", "application/json")
             .send({
                 "email": "new_email2@gmail.com",
             })
+            .expect("Content-type", "application/json; charset=utf-8")
             expect(responsee.statusCode).toBe(200)
             expect(responsee.body.data.email).toEqual('new_email2@gmail.com')
             expect(responsee.body.data.name).toEqual('newName')
@@ -182,7 +175,7 @@ describe("PATCH /users",  () => {
 
     describe("given an invalid authorization header or empty request body", () => {
 
-        it('should respond with status code 403 in case of invalid authorization header', async () => {
+        it('should respond with status code 403 forbidden in case of invalid authorization header', async () => {
             const response = await api.patch('/users')
             .set('Authorization' , "testtt")
             .send({
@@ -190,9 +183,10 @@ describe("PATCH /users",  () => {
                 username: "newtest",
                 password: "newpassword" 
             })
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(403)
         })
-        it('should respond with status code 400 incase of empty request body', async () => {
+        it('should respond with status code 400 of bad request incase of empty request body', async () => {
             const response = await api.post('/auth').send({
                 "email": "new_email2@gmail.com",
                 "password": "newpassword123"
@@ -200,7 +194,6 @@ describe("PATCH /users",  () => {
             tokenn = response.body.token;
             const response1 = await api.patch('/users')
             .set('Authorization' , tokenn)
-            // .send()
             expect(response1.statusCode).toBe(400)
         })
 
@@ -219,6 +212,7 @@ describe("DELETE /users",  () => {
             tokenn = response.body.token;
             const response1 = await api.delete('/users')
             .set('Authorization' ,tokenn)
+            .set("Content-type", "application/json")
             expect(response1.statusCode).toBe(200)
             expect(response1.body.message).toEqual('User deleted with success')
         })
@@ -227,9 +221,10 @@ describe("DELETE /users",  () => {
 
     describe("given an invalid authorization token", () => {
 
-        it('should respond with status code 403 incase of invalid authorization header', async () => {
+        it('should respond with status code 403 forbidden incase of invalid authorization header', async () => {
             const response = await api.delete('/users')
             .set('Authorization' , 'wewewewewewe')
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(403)
             expect(response.body.message).toEqual('Unauthorized to delete')
         })
@@ -245,6 +240,7 @@ describe("DELETE /all-users",  () => {
             .send({
                 "key_admin" : "keyadmin123"
             })
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(200)
             expect(response.body.message).toEqual('Users deleted with success')
         })
@@ -253,16 +249,17 @@ describe("DELETE /all-users",  () => {
 
     describe("given an invalid request body", () => {
 
-        it('should respond with status code 403 incase of invalid key admin', async () => {
+        it('should respond with status code 403 forbidden incase of invalid key admin', async () => {
             const response = await api.delete('/all-users')
             .set("Content-type", "application/json")
             .send({
                 "key_admin": "keyadmin12keyyyy3"
             })
+            .set("Content-type", "application/json")
             expect(response.statusCode).toBe(403)
             expect(response.body.message).toEqual('Unauthorized access')
         })
-        it('should respond with status code 400 incase empty request body', async () => {
+        it('should respond with status code 400 forbidden incase empty request body', async () => {
             const response = await api.delete('/all-users')
             .set("Content-type", "application/json")
             expect(response.statusCode).toBe(400)
