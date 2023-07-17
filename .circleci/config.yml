@@ -12,14 +12,11 @@ jobs:
           command: |
             npm run dev 3000
             sleep 20 # Wait for the server to start
-      - run:
-          name: Print Current Directory
-          command: |
-            pwd
-      - run:
-          name: Run API Tests
-          command: |
-            npm run apitest || true
+      - parallel:
+          - name: Run API Tests
+            command: npm run apitest
+          - name: Run UI Tests
+            command: npm run uitest
       - run:
           name: Stop Localhost Server
           command: |
