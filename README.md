@@ -35,5 +35,5 @@ This project provide simple ui tests for the website mentioned in the documentat
 - **Note the failing part isn't because of the tests itself as all the api tests can be seen passed, however the ui tests the ci fail to start the test runner.**
 
 ## <p align="left"><img src="https://www.pngall.com/wp-content/uploads/12/Delivery-Scooter-PNG-Images-HD.png" width="40" title="Deliverables"> Deliverables </p> 
-- Bug report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/PDF).
+- Bug report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/blob/main/PDF/Bug%20reports%20final.pdf).
 - Test documentation report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/tree/main/PDF).
