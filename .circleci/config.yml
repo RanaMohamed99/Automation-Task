@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Run UI Tests
           command: |
-            npm run uitest nightwatch/examples/ui-tests nightwatch/examples/ui-tests --env chrome
+            npm run uitest nightwatch/examples/ui-tests nightwatch/examples/ui-tests--config nightwatch.conf.js --env chrome
           when: always
       - run:
           name: Stop Localhost Server
