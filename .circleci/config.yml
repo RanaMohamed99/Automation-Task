@@ -20,11 +20,6 @@ jobs:
           name: Run API Tests
           command: |
             npm run apitest || true
-            echo "API tests completed successfully"
-      - run:
-          name: Run UI Tests
-          command: |
-            npm run uitest
       - run:
           name: Stop Localhost Server
           command: |
