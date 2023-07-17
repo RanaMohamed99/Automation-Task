@@ -5,7 +5,7 @@ jobs:
       - image: cimg/node:16.13.2
     steps:
       - checkout
-      - run: npm update
+      - run: npm install
       - run: npm uninstall protractor && npm install protractor
       - run:
          name: Install ChromeDriver
