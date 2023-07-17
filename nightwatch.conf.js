@@ -54,7 +54,7 @@ module.exports = {
       
       webdriver: {
         start_process: true,
-        server_path: './bin/selenium-server-standalone-3.4.0.jar'
+        server_path: 'bin/chromedriver'
       },
       
     },
