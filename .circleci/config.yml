@@ -7,6 +7,10 @@ jobs:
       - checkout
       - run: npm update
       - run:
+         name: Install ChromeDriver
+         command:  |
+            npm install chromedriver
+      - run:
           name: Start Localhost Server
           background: true
           command: |
@@ -20,7 +24,7 @@ jobs:
       - run:
           name: Run UI Tests
           command: |
-            npm run uitest nightwatch/examples/ui-tests
+            npm run uitest nightwatch/examples/ui-tests --config nightwatch.conf.js --env chrome
           when: always
       - run:
           name: Stop Localhost Server
