@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: cimg/node:16.13.2
+    working_directory: /.
     steps:
       - checkout
       - run: npm update
