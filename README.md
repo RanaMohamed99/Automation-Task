@@ -30,9 +30,9 @@ This project provide simple ui tests for the website mentioned in the documentat
 - Supertest
 - JEST
 
-## <p align="left"><img src="https://cdn.iconscout.com/icon/free/png-256/free-circleci-3629946-3031758.png" width="35" title="Integration with Circle CI"> Integration with CI </p>
+## <p align="left"><img src="https://cdn.iconscout.com/icon/free/png-256/free-circleci-3629946-3031758.png" width="35" title="Integration with Circle CI"> Integration with Circle CI </p>
 - I have integrated my project with Circle CI, and included the badge as well.
-- **Note the failing part isn't because of the tests itself as all the api tests can be seen passed, however the ui tests the ci fail to start the test runner.**
+- **Note all the api tests can be seen actually being executed, however the ui tests the ci fail to start the test chromedriver.**
 
 ## <p align="left"><img src="https://www.pngall.com/wp-content/uploads/12/Delivery-Scooter-PNG-Images-HD.png" width="40" title="Deliverables"> Deliverables </p> 
 - Bug report pdf attatched [here](https://github.com/RanaMohamed99/Automation-Task/blob/main/PDF/Bug%20reports%20final.pdf).
