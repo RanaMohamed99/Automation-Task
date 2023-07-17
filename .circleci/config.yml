@@ -6,11 +6,6 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm uninstall protractor && npm install protractor
-      - run:
-         name: Install ChromeDriver
-         command:  |
-            npm install chromedriver
       - run:
           name: Start Localhost Server
           background: true
