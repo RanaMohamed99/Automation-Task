@@ -54,7 +54,7 @@ module.exports = {
       
       webdriver: {
         start_process: true,
-        server_path: ''
+        server_path: './lib/drivers/chromedriver.exe'
       },
       
     },
