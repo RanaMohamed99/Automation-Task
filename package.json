@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "apitest": "jest",
+    "apitest": "jest && nightwatch",
     "uitest": "nightwatch",
     "dev": "nodemon ./node_modules/mock-user-auth/bin/www.js"
   },
