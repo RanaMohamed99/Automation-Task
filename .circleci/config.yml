@@ -16,11 +16,13 @@ jobs:
           - name: Run API Tests
             steps:
               - run:
-                  command: npm run apitest
+                  command: |
+                    npm run apitest
           - name: Run UI Tests
             steps:
               - run:
-                  command: npm run uitest
+                  command: |
+                    npm run uitest
       - run:
           name: Stop Localhost Server
           command: |
